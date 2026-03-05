@@ -3,6 +3,7 @@ import subprocess
 from enum import IntEnum
 from concurrent.futures import ThreadPoolExecutor
 
+
 class NaturezaEquipamento(IntEnum):
     NULL = 0
     RELOGIO = 1
@@ -27,11 +28,11 @@ config = {
 
 def busca_todos_equipamentos():
     conn_str = (
-        "DRIVER={ODBC Driver 17 for SQL Server};" # Obrigatorio para conexão SQL Server
-        "SERVER=IP_banco;"
-        "DATABASE=nome_do_banco;"
-        "UID=usuario_banco;"
-        "PWD=senha_banco;"
+        "DRIVER={ODBC Driver 17 for SQL Server};"
+        "SERVER=LAPTOP-5112UO3P\\SQLEXPRESS;"
+        "DATABASE=EURO;"
+        "UID=FORPONTO;"
+        "PWD=FORPONTO;"
         "Trusted_Connection=yes"
     )
 
@@ -103,6 +104,8 @@ def verifica_equipamentos(lista_final):
             print(f"{eq['DESCRICAO']}({ip}) - online")
         else:
             print(f"{eq['DESCRICAO']} ({ip}) - offline")
+
+
 
 if __name__ == "__main__":
     lista, relogios, catracas, outros = busca_todos_equipamentos()
